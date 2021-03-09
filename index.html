@@ -14,6 +14,7 @@
     <script>
       function onScanSuccess(qrMessage) {
         document.getElementById("resultp").innerHTML = qrMessage;
+        window.location.href = qrMessage;
       }
       function onScanFailure(error) {
           // handle scan failure, usually better to ignore and keep scanning
