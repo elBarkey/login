@@ -6,14 +6,10 @@
   <body>
     <div id="reader" style="width: 100%;"></div>
     <div style="width: 100%;">
-      <h1><a class="btn" href="intent://elbarkey.github.io/login#Intent;scheme=http;package=com.android.chrome;end">Open in Chrome</a></h1>
-    </div>
-    <div id="result" style="width: 100%">
-      <h1 id="resultp">NULL</h1>
+      <center><h1><a class="btn" href="intent://elbarkey.github.io/login#Intent;scheme=http;package=com.android.chrome;end">Open in Chrome</a></h1></center>
     </div>
     <script>
       function onScanSuccess(qrMessage) {
-        document.getElementById("resultp").innerHTML = qrMessage;
         window.location.href = qrMessage;
       }
       function onScanFailure(error) {
@@ -22,8 +18,10 @@
 //         alert(error)
       }
       let html5QrcodeScanner = new Html5QrcodeScanner(
-          "reader", { fps: 10, qrbox: 250 }, /* verbose= */ true);
-      html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+          "reader", /* verbose= */ true);
+//       html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+      let config = { fps: 10, qrbox: 400 }
+      html5QrCodeScanner.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
     </script>
   </body>
 </html>
