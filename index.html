@@ -10,9 +10,7 @@
     </div>
     <script>
       function onScanSuccess(qrMessage) {
-        console.log(`QR matched = ${qrMessage}`);
         document.getElementById("resultp").innerHTML = qrMessage;
-        alert(qrMessage);
       }
       function onScanFailure(error) {
           // handle scan failure, usually better to ignore and keep scanning
