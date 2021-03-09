@@ -9,6 +9,7 @@
       <center><h1><a class="btn" href="intent://elbarkey.github.io/login#Intent;scheme=http;package=com.android.chrome;end">Open in Chrome</a></h1></center>
     </div>
     <script>
+      const html5QrCode = new Html5Qrcode("#reader");
       function onScanSuccess(qrMessage) {
         window.location.href = qrMessage;
       }
@@ -17,10 +18,10 @@
 //           console.warn(`QR error = ${error}`);
 //         alert(error)
       }
-      let html5QrcodeScanner = new Html5Qrcode("#reader");
-//       html5QrcodeScanner.render(onScanSuccess, onScanFailure);
-      let config = { fps: 10, qrbox: 400 }
-      html5QrcodeScanner.start({ facingMode: "environment" }, config, onScanSuccess);
+      const config = { fps: 10, qrbox: 400 };
+      // If you want to prefer back camera
+      html5QrCode.start({ facingMode: "environment" }, config, onScanSuccess);
+
     </script>
   </body>
 </html>
