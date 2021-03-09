@@ -17,8 +17,7 @@
 //           console.warn(`QR error = ${error}`);
 //         alert(error)
       }
-      let html5QrcodeScanner = new Html5QrcodeScanner(
-          "reader", /* verbose= */ true);
+      let html5QrcodeScanner = new Html5Qrcode("#reader");
 //       html5QrcodeScanner.render(onScanSuccess, onScanFailure);
       let config = { fps: 10, qrbox: 400 }
       html5QrcodeScanner.start({ facingMode: "environment" }, config, onScanSuccess);
